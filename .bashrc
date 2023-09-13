@@ -69,6 +69,12 @@ prompt_git() {
 PS1="\\n\\u at \\h in \\w\$(prompt_git \" on \")\\n$ "
 
 
+# load exports
+exports_file="$HOME/.exports"
+if [[ -r $exports_file ]] && [[ -f $exports_file ]]; then
+	source $exports_file
+fi
+
 
 # load aliases
 aliases_file="$HOME/.aliases"
@@ -76,8 +82,9 @@ if [[ -r $aliases_file ]] && [[ -f $aliases_file ]]; then
 	source $aliases_file
 fi
 
-# load exports
-exports_file="$HOME/.exports"
-if [[ -r $exports_file ]] && [[ -f $exports_file ]]; then
-	source $exports_file
+
+# load functions
+functions_file="$HOME/.functions"
+if [[ -r $functions_file ]] && [[ -f $functions_file ]]; then
+	source $functions_file
 fi
