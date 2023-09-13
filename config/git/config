@@ -1,0 +1,8 @@
+[init]
+	defaultBranch = main
+
+[user]
+	name = Emanuel Buholzer
+
+[pull]
+	rebase = true
