@@ -1,0 +1,9 @@
+configuration{
+    modi: "run,drun,window";
+    terminal: "kitty";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+}
+
+@theme "i3default"

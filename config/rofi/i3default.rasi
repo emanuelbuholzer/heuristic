@@ -1,0 +1,63 @@
+* {
+    bg-col:  #000000;
+    bg-col-light: #1e1e2e;
+    border-col: #51A2DA;
+    selected-col: #FFFFFF;
+    fg-col: #FFFFFF;
+    fg-col2: #000000;
+    grey: #6c7086;
+
+    width: 900;
+    font: "Fira Code Nerd Font 12";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 360px;
+    border: 0px 2px 2px 2px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [entry];
+    background-color: @bg-col;
+}
+
+textbox-prompt-colon {
+    str: ":";
+}
+
+entry {
+    padding: 3px;
+    text-color: @fg-col;
+    background-color: @border-col;
+}
+
+listview {
+    background-color: @bg-col;
+}
+
+element {
+    padding: 3px;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+}
+
+element-icon {
+    size: 18px;
+}
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2  ;
+}
+
