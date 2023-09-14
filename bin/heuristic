@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+vim $(find $(cat ~/.heuristic) -name "*" -not -name ".gitignore" -not -path "*.git/*" -not -name ".*.swp" | rofi -dmenu --terminal kitty)

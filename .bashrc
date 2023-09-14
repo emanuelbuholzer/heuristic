@@ -75,6 +75,12 @@ if [[ -r $exports_file ]] && [[ -f $exports_file ]]; then
 	source $exports_file
 fi
 
+# load path
+path_file="$HOME/.path"
+if [[ -r $path_file ]] && [[ -f $path_file ]]; then
+	source $path_file
+fi
+
 
 # load aliases
 aliases_file="$HOME/.aliases"
@@ -82,9 +88,9 @@ if [[ -r $aliases_file ]] && [[ -f $aliases_file ]]; then
 	source $aliases_file
 fi
 
-
 # load functions
 functions_file="$HOME/.functions"
 if [[ -r $functions_file ]] && [[ -f $functions_file ]]; then
 	source $functions_file
 fi
+
