@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+xrandr -s 1920x1080
+feh --bg-fill https://gravitybreak.media/userart/229.png
+
+sudo dnf install \
+  git \
+  vim \
+  kitty \
+  flatpak \
+  rofi
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 echo "installing dotfiles from $script_dir"
 read -p "do you want to proceed: [y/N] " do_install
