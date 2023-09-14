@@ -1,3 +1,3 @@
 heuristic() {
-	xdg-open $(find $(cat ~/.heuristic) -name "*" -not -name ".gitignore" -not -path "*.git/*" -not -name ".*.swp" | rofi -dmenu) 2>/dev/null
+	vim $(find $(cat ~/.heuristic) -name "*" -not -name ".gitignore" -not -path "*.git/*" -not -name ".*.swp" | rofi -dmenu)
 }

@@ -16,3 +16,8 @@ for dotfile in $(find $(pwd) -name ".*" -not -name ".gitignore" -not -name ".git
   ln -snf "$dotfile" "$HOME/$filename"
 done
 unset dotfile
+
+echo "installing fonts"
+# mkdir -p "$HOME/.local/share"
+# ln -snf "$script_dir/fonts" "$HOME/.local/share/fonts"
+fc-cache -rf

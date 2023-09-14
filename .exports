@@ -15,9 +15,9 @@ export HISTCONTROL=ignoredups;
 # make some commands not show up in history
 export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h"
 
-
-
-
+# term
+export TERMINAL=kitty
+export TERM=kitty
 
 # use vim
 export EDITOR=/usr/bin/vim
