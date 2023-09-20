@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+heuristic_dir=$(cat ~/.heuristic)
+untracked_files=$(\
+	git -C "$heuristic_dir" status \
+	--porcelain \
+	| grep ?? \
+	| cut -c 4-
+)
+file=$(\
+	find "$heuristic_dir" \
+	-name "*" \
+	-not -name ".gitignore" \
+	-not -path "*.git/*" \
+       	-not -name ".*.swp" \
+	-not -name "*.woff*" \
+	-not -name "*.ttf*" \
+       	-not -type d \
+	| grep -v "$untracked_files" \
+	| rofi -dmenu --terminal kitty
+)
+kitty bash -c "vim $file"
+

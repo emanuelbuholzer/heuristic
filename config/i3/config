@@ -12,7 +12,7 @@ smart_gaps inverse_outer
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
 exec --no-startup-id nm-applet
 
@@ -45,15 +45,15 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # rofi heuristic bin
-bindsym $mod+c exec --no-startup-id "bash -c '$(cat ~/.heuristic)/bin/heuristic'"
+bindsym $mod+c exec --no-startup-id "bash -c '$(cat ~/.heuristic)/bin/vim-heuristic'"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+l exec i3lock -c 000000
+bindsym $mod+l exec --no-startup-id i3lock -c 000000 --nofork
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
