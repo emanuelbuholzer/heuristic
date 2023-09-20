@@ -1,0 +1,18 @@
+# You can enable more keys by adding more `[[ssh-keys]]` entries.
+# For example, to first enable item "My SSH Key" from "My Custom Vault":
+#
+#  [[ssh-keys]]
+#  item = "My SSH Key"
+#  vault = "My Custom Vault"
+#
+#  [[ssh-keys]]
+#  vault = "Private"
+#
+# You can test the result by running:
+#
+#  SSH_AUTH_SOCK=~/.1password/agent.sock ssh-add -l
+#
+# More examples can be found here:
+#  https://developer.1password.com/docs/ssh/agent/config
+[[ssh-keys]]
+vault = "IoT Innovation Lab"
