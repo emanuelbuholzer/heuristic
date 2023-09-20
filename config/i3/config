@@ -190,5 +190,9 @@ bar {
     urgent_workspace   #EC69A0 #DB3279 #FFFFFF
     binding_mode       #b691d3 #A07CBC #FFFFFF
   }
+  padding 0px 8px 0px 0px 
+  separator_symbol " | "
+  tray_padding 4px
+  position bottom
   status_command i3status --config $XDG_CONFIG_HOME/i3/status.conf
 }
