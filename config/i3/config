@@ -4,6 +4,10 @@ set $mod Mod4
 
 font pango:Fira Code Mono 12
 
+gaps inner 12px
+gaps outer 18px
+smart_gaps inverse_outer
+
 # start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
@@ -14,12 +18,24 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id 1password --silent
 
-
 # floaty windows
 for_window [class="1Password"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Thunar"] floating enable
-for_window [class="firefox"] floating enable
+for_window [class="disks"] floating enable
+for_window [class="Google-chrome"] floating enable
+for_window [class="DBeaver"] floating enable
+for_window [class="PulseUI"] floating enable
+for_window [class="teams-for-linux"] floating enable
+for_window [class="gnome-firmware"] floating enable
+for_window [class="gnome-font-viewer"] floating enable
+for_window [class="thunderbird"] floating enable
+# azote
+for_window [class="Main.py"] floating enable
+for_window [class="bottles"] floating enable
+for_window [class="vlc"] floating enable
+for_window [class="zoom"] floating enable
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -28,8 +44,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# rofi heuristic bin
+bindsym $mod+c exec --no-startup-id "bash -c '$(cat ~/.heuristic)/bin/heuristic'"
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+bindsym $mod+l exec i3lock -c 000000
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -38,15 +59,9 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # rofi run
-bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -70,9 +85,6 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+e layout toggle 
 
-# rofi window switcher
-bindsym $mod+Tab exec "rofi -show window"
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -80,9 +92,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+Shift+a move scratchpad
-bindsym $mod+a scratchpad show
-bindsym $mod+w exec "rofi -show window"
+bindsym $mod+Shift+Tab move scratchpad
+bindsym $mod+Tab scratchpad show
+bindsym $mod+w exec --no-startup-id "rofi -show window"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
