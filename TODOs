@@ -1,0 +1,18 @@
+- integrate libinput to support touchpad gestures
+- udev based monitor hotplug
+- function to mkdir and cd into it
+- function to make a temporary direcoty and enter it
+- function to create a data URL from a file
+- http-server like `npx http-server` or the python integrated one
+- better integrate xdg-open
+- function for tree
+- function to open a git repo in it's respective web site
+- colors in the terminal, man and so on...
+- advanced kitty config
+- xclip or pbpaste for stdio
+- dns flusher
+- ip 
+- untar, ungzip etc.
+- integrate light
+- distrobox
+- installer
