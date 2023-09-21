@@ -10,11 +10,13 @@ if [ "$do_install" != "y" ]; then
   exit 1
 fi
 
+echo 
+sudo echo
 
-echo -e "\n==> checking for updates"
+echo -e "==> checking for updates"
 sudo dnf update
 read -p "do you need to reboot: [y/N] " do_reboot
-if [ "$do_reboot" != "y" ]; then
+if [ "$do_reboot" == "y" ]; then
   sudo poweroff --reboot
 fi
 
@@ -31,8 +33,8 @@ sudo dnf install -y \
   vim \
   kitty \
   flatpak \
-  rofi
-
+  rofi \
+  virt-viewer
 
 # 1password
 echo -e "\n==> installing 1password"
