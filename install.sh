@@ -73,6 +73,7 @@ flatpak install -y flathub com.google.Chrome
 
 flatpak install -y flathub org.gnome.font-viewer
 flatpak install -y flathub com.github.tchx84.Flatseal
+flatpak install flathub com.github.themix_project.Oomox
 flatpak install -y flathub us.zoom.Zoom
 flatpak install -y flathub com.github.IsmaelMartinez.teams_for_linux
 
