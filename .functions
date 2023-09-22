@@ -1,0 +1,10 @@
+mkd() {
+	mkdir -p "$@"
+	cd "$@" 
+}
+
+tmpd() {
+	local dir
+	dir=$(mktemp -d)
+	cd "$dir"
+}

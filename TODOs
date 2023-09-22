@@ -1,13 +1,12 @@
-- lightdm-gtk-greeter config
-- etc and usr installers
-- integrate libinput to support touchpad gestures
+- distrobox
+- installer
+- theme with theemix oomox (including lightdm-gtk-greeter)
 - udev based monitor hotplug
-- function to mkdir and cd into it
-- function to make a temporary direcoty and enter it
+- better integrate xdg-open
+
+- integrate libinput to support touchpad gestures
 - function to create a data URL from a file
 - http-server like `npx http-server` or the python integrated one
-- better integrate xdg-open
-- function for tree
 - function to open a git repo in it's respective web site
 - colors in the terminal, man and so on...
 - advanced kitty config
@@ -15,8 +14,4 @@
 - dns flusher
 - ip 
 - untar, ungzip etc.
-- integrate light
-- distrobox
-- installer
-- theme with theemix oomox
 - thunas config config/Thunar
