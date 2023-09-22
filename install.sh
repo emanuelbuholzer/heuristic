@@ -3,8 +3,8 @@
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 cd "$script_dir"
 
-echo "installing heuristic desktop from $script_dir"
-read -p "do you want to proceed: [y/N] " do_install
+echo -e "\n==> installing heuristic desktop from $script_dir"
+echo ; read -p "do you want to proceed: [y/N] " do_install
 if [ "$do_install" != "y" ]; then
   echo "aborting"
   exit 1
@@ -15,7 +15,7 @@ sudo echo
 
 echo -e "==> checking for updates"
 sudo dnf update
-read -p "do you need to reboot: [y/N] " do_reboot
+echo ; read -p "do you need to reboot: [y/N] " do_reboot
 if [ "$do_reboot" == "y" ]; then
   sudo poweroff --reboot
 fi
@@ -47,6 +47,32 @@ Host *
 EOF
 
 
+# etc files
+echo -e "\n==> installing etc files"
+for localfile in $(find $(pwd)/etc -type f -not -name ".*.swp"); do
+	etcfile=$(echo "$localfile" | sed -e "s|$(pwd)||")
+	sudo mkdir -p $(dirname "$etcfile")
+	# TODO partitioning for hardlink
+	sudo cp "$localfile" "$etcfile"
+done
+systemctl --user daemon-reload || true
+sudo systemctl daemon-reload
+unset localfile
+unset etcfile
+
+
+# usr files
+echo -e "\n==> installing usr files"
+for localfile in $(find $(pwd)/usr -type f -not -name ".*.swp"); do
+	usrfile=$(echo "$localfile" | sed -e "s|$(pwd)||")
+	sudo mkdir -p $(dirname "$usrfile")
+	# TODO partitioning for hardlink
+	sudo cp "$localfile" "$usrfile"
+done
+unset localfile
+unset usrfile
+
+
 # dotfiles
 echo -e "\n==> installing dotfiles"
 for dotfile in $(find $(pwd) -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp"); do
@@ -55,6 +81,7 @@ for dotfile in $(find $(pwd) -name ".*" -not -name ".gitignore" -not -name ".git
   ln -snf "$dotfile" "$HOME/$filename"
 done
 unset dotfile
+
 
 
 # fira code
@@ -93,3 +120,10 @@ flatpak install -y flathub org.libreoffice.LibreOffice
 echo -e "\n==> cleaning up"
 sudo dnf remove -y \
   firefox
+
+
+echo -e "\n==> installation complete"
+echo ; read -p "do you want to to exit i3 to apply most changes: [y/N] " do_exit_i3
+if [ "$do_exit_i3" == "y" ]; then
+	i3-msg exit
+fi

@@ -1,3 +1,5 @@
+- lightdm-gtk-greeter config
+- etc and usr installers
 - integrate libinput to support touchpad gestures
 - udev based monitor hotplug
 - function to mkdir and cd into it
