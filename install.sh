@@ -86,8 +86,7 @@ unset dotfile
 
 # fira code
 echo -e "\n==> installing fonts"
-mkdir -p "$HOME/.local/share"
-ln -snf "$script_dir/fonts" "$HOME/.local/share/fonts"
+sudo dnf install -y fira-code-fonts
 fc-cache -rf
 
 
@@ -100,7 +99,8 @@ flatpak install -y flathub com.google.Chrome
 
 flatpak install -y flathub org.gnome.font-viewer
 flatpak install -y flathub com.github.tchx84.Flatseal
-flatpak install flathub com.github.themix_project.Oomox
+# for the gtk theming
+flatpak install -y flathub com.github.themix_project.Oomox
 flatpak install -y flathub us.zoom.Zoom
 flatpak install -y flathub com.github.IsmaelMartinez.teams_for_linux
 
