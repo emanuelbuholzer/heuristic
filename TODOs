@@ -1,7 +1,7 @@
 - distrobox
 - installer
 - theme with theemix oomox (including lightdm-gtk-greeter)
-- udev based monitor hotplug
+- udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
 - better integrate xdg-open
 
 - integrate libinput to support touchpad gestures
