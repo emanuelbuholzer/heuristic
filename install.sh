@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+
+# we save the directory we've been called from, get the directory of the script
+# and go there. this is were we'll work.
+call_dir=$(pwd)
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 cd "$script_dir"
+
 
 echo -e "\n==> installing heuristic desktop from $script_dir"
 echo ; read -p "do you want to proceed: [y/N] " do_install
@@ -10,20 +15,25 @@ if [ "$do_install" != "y" ]; then
   exit 1
 fi
 
+
+# ask for sudo, so we don't need to later :-)
 echo 
 sudo echo
 
+
+# check for updates and offer graceful reboot because we need a fresh system
 echo -e "==> checking for updates"
 sudo dnf update
 echo ; read -p "do you need to reboot: [y/N] " do_reboot
 if [ "$do_reboot" == "y" ]; then
+  echo "aborting install to reboot"
+  sleep 5
   sudo poweroff --reboot
 fi
 
 
-# goodies
+# mark where heuristic has been installed from
 echo "$script_dir" > ~/.heuristic
-xrandr -s 1920x1080
 
 
 # basic packages
@@ -36,6 +46,7 @@ sudo dnf install -y \
   rofi \
   arandr \
   virt-viewer
+
 
 # 1password
 echo -e "\n==> installing 1password"
@@ -116,13 +127,24 @@ flatpak install -y flathub org.libreoffice.LibreOffice
 # flatpak install -y flathub com.usebottles.bottles
 # flatpak install -y flathub org.gimp.GIMP
 
+
 # cleanup
-# TODO: home directories
 echo -e "\n==> cleaning up"
+rm -r \
+	~/Desktop \
+	~/Download \
+	~/Templates \
+	~/Public \
+	~/Documents \
+	~/Music \
+	~/Pictures \
+	~/Videos 
+
 sudo dnf remove -y \
   firefox
 
 
+# after we get a new X session, mosth things should be applied
 echo -e "\n==> installation complete"
 echo ; read -p "do you want to to exit i3 to apply most changes: [y/N] " do_exit_i3
 if [ "$do_exit_i3" == "y" ]; then
