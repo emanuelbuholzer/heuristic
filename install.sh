@@ -34,6 +34,7 @@ sudo dnf install -y \
   kitty \
   flatpak \
   rofi \
+  arandr \
   virt-viewer
 
 # 1password

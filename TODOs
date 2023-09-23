@@ -1,9 +1,9 @@
 - distrobox
 - installer
-- theme with theemix oomox (including lightdm-gtk-greeter)
-- udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
 - better integrate xdg-open
 
+- arandr remember
+- udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
 - integrate libinput to support touchpad gestures
 - function to create a data URL from a file
 - http-server like `npx http-server` or the python integrated one
