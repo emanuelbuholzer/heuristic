@@ -45,14 +45,15 @@ sudo dnf install -y \
   flatpak \
   rofi \
   arandr \
-  virt-viewer
+  virt-viewer \
+  virt-manager
 
 
 # 1password
 echo -e "\n==> installing 1password"
 sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
 sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
-sudo dnf check-update -y 1password && sudo dnf install -y 1password
+sudo dnf check-update -y 1password-cli 1password && sudo dnf install -y 1password-cli 1password
 cat <<EOF > ~/.ssh/config
 Host *
 	IdentityAgent ~/.1password/agent.sock
@@ -95,7 +96,6 @@ done
 unset dotfile
 
 
-
 # fira code
 echo -e "\n==> installing fonts"
 sudo dnf install -y fira-code-fonts
@@ -118,12 +118,8 @@ flatpak install -y flathub com.github.IsmaelMartinez.teams_for_linux
 
 flatpak install -y flathub org.wireshark.Wireshark
 flatpak install -y flathub org.libreoffice.LibreOffice
-# flatpak install -y flathub com.jetbrains.CLion
-# flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Ultimate
-# flatpak install -y flathub org.mozilla.Thunderbird
-# flatpak install -y flathub io.dbeaver.DBeaverCommunity
+flatpak install -y flathub io.dbeaver.DBeaverCommunity
 # flatpak install -y flathub org.filezillaproject.Filezilla
-# flatpak install -y flathub cc.arduino.IDE2
 # flatpak install -y flathub com.usebottles.bottles
 # flatpak install -y flathub org.gimp.GIMP
 
