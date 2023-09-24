@@ -20,16 +20,15 @@ exec --no-startup-id 1password --silent
 
 # floaty windows
 for_window [class="1Password"] floating enable
-for_window [class="Mousepad"] floating enable
-for_window [class="Thunar"] floating enable
-for_window [class="disks"] floating enable
-for_window [class="Google-chrome"] floating enable
+for_window [class="Mousepad"] floating enable, resize set 640 400, move position center
+for_window [class="Thunar"] floating enable, resize set 800 600, move position center
+for_window [class="disks"] floating enable, resize set 800 600, move position center
+for_window [class="Google-chrome"] floating enable, resize set 960 720, move position center
 for_window [class="DBeaver"] floating enable
 for_window [class="PulseUI"] floating enable
 for_window [class="teams-for-linux"] floating enable
-for_window [class="gnome-firmware"] floating enable
-for_window [class="gnome-font-viewer"] floating enable
-for_window [class="thunderbird"] floating enable
+for_window [class="gnome-firmware"] floating enable, resize set 640 400, move position center
+for_window [class="gnome-font-viewer"] floating enable, resize set 640 400, move position center
 # azote
 for_window [class="Main.py"] floating enable
 for_window [class="bottles"] floating enable
