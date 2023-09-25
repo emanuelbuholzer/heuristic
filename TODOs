@@ -1,7 +1,6 @@
 - distrobox
 - installer
 - better integrate xdg-open
-- rdp-client with https://remmina.org/how-to-install-remmina/
 
 - arandr remember
 - udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)

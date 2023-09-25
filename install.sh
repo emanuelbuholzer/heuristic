@@ -119,6 +119,7 @@ flatpak install -y flathub com.github.IsmaelMartinez.teams_for_linux
 flatpak install -y flathub org.wireshark.Wireshark
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub io.dbeaver.DBeaverCommunity
+flatpak install -y flathub org.remmina.Remmina
 # flatpak install -y flathub org.filezillaproject.Filezilla
 # flatpak install -y flathub com.usebottles.bottles
 # flatpak install -y flathub org.gimp.GIMP
