@@ -1,16 +1,18 @@
-- distrobox
+- integrate chuckles
 - installer
-- better integrate xdg-open
 
+- test fedora 39
+- better integrate xdg-open
 - arandr remember
 - udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
-- integrate libinput to support touchpad gestures
-- function to create a data URL from a file
 - http-server like `npx http-server` or the python integrated one
-- function to open a git repo in it's respective web site
 - colors in the terminal, man and so on...
 - advanced kitty config
 - xclip or pbpaste for stdio
+- integrate libinput to support touchpad gestures
+
+- function to create a data URL from a file
+- function to open a git repo in it's respective web site
 - dns flusher
 - ip 
 - untar, ungzip etc.
