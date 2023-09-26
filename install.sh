@@ -45,9 +45,12 @@ sudo dnf install -y \
   flatpak \
   rofi \
   arandr \
+  distrobox \
+  light \
   virt-viewer \
   virt-manager \
-  distrobox
+  lorax \
+  pykickstart
 
 
 # 1password
@@ -60,6 +63,13 @@ cat <<EOF > ~/.ssh/config
 Host *
 	IdentityAgent ~/.1password/agent.sock
 EOF
+
+
+# tailscale
+echo -e "\n==> installing tailscale"
+sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora//tailscale.repo
+sudo dnf install -y tailscale
+sudo systemctl enable --now tailscaled
 
 
 # etc files
@@ -122,16 +132,13 @@ flatpak install --user -y flathub org.wireshark.Wireshark
 flatpak install --user -y flathub org.libreoffice.LibreOffice
 flatpak install --user -y flathub io.dbeaver.DBeaverCommunity
 flatpak install --user -y flathub org.remmina.Remmina
-# flatpak install -y flathub org.filezillaproject.Filezilla
-# flatpak install -y flathub com.usebottles.bottles
-# flatpak install -y flathub org.gimp.GIMP
 
 
 # cleanup
 echo -e "\n==> cleaning up"
 rm -r \
 	~/Desktop \
-	~/Download \
+	~/Downloads \
 	~/Templates \
 	~/Public \
 	~/Documents \
