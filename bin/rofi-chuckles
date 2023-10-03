@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+heuristic_dir=$(cat ~/.heuristic)
+cd "$heuristic_dir"
+if [ ! -d "./chuckles" ]; then
+	git clone git@github.com:emanuelbuholzer/chuckles.git
+fi
+
+cd "$heuristic_dir/chuckles/bin"
+chuckles_bin=$(\
+	git ls-files --cached --others --exclude-standard \
+	| rofi -dmenu --terminal kitty
+)
+
+"$heuristic_dir/chuckles/bin/$chuckles_bin"
+

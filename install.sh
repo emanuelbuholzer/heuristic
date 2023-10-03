@@ -40,13 +40,16 @@ echo "$script_dir" > ~/.heuristic
 echo -e "\n==> installing basic packages"
 sudo dnf install -y \
   git \
+  git-lfs \
   vim \
   kitty \
   flatpak \
   rofi \
   arandr \
-  distrobox \
   light \
+  distrobox \
+  podman \
+  buildah \
   virt-viewer \
   virt-manager \
   lorax \
@@ -129,9 +132,11 @@ flatpak install --user -y flathub us.zoom.Zoom
 flatpak install --user -y flathub com.github.IsmaelMartinez.teams_for_linux
 
 flatpak install --user -y flathub org.wireshark.Wireshark
+flatpak install --user -y flathub org.gnome.Evince
 flatpak install --user -y flathub org.libreoffice.LibreOffice
 flatpak install --user -y flathub io.dbeaver.DBeaverCommunity
 flatpak install --user -y flathub org.remmina.Remmina
+flatpak install --user -y flathub org.ksnip.ksnip
 
 
 # cleanup
