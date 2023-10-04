@@ -24,6 +24,8 @@ sudo echo
 # check for updates and offer graceful reboot because we need a fresh system
 echo -e "==> checking for updates"
 sudo dnf update
+sudo dnf upgrade --refresh
+
 echo ; read -p "do you need to reboot: [y/N] " do_reboot
 if [ "$do_reboot" == "y" ]; then
   echo "aborting install to reboot"
@@ -41,6 +43,7 @@ echo -e "\n==> installing basic packages"
 sudo dnf install -y \
   git \
   git-lfs \
+  ShellCheck \
   vim \
   kitty \
   flatpak \
