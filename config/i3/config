@@ -30,7 +30,7 @@ for_window [class="disks"] floating enable, resize set 800 600, move position ce
 for_window [class="Google-chrome"] floating enable, resize set 1280 900, move position center
 for_window [class="DBeaver"] floating enable
 for_window [class="PulseUI"] floating enable
-for_window [class="teams-for-linux"] floating enable
+for_window [class="teams-for-linux"] floating enable, resize set 1280 900, move position center
 for_window [class="gnome-firmware"] floating enable, resize set 1280 900, move position center
 for_window [class="gnome-font-viewer"] floating enable, resize set 640 400, move position center
 # azote
