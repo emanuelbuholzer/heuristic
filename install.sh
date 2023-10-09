@@ -106,7 +106,7 @@ unset usrfile
 
 # dotfiles
 echo -e "\n==> installing dotfiles"
-for dotfile in $(find $(pwd) -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp"); do
+for dotfile in $(find $(pwd) -maxdepth 1 -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp"); do
   filename=$(basename $dotfile)
   echo "installing dotfile $filename"
   ln -snf "$dotfile" "$HOME/$filename"
