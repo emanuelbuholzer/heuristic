@@ -44,6 +44,7 @@ sudo dnf install -y \
   git \
   git-lfs \
   ShellCheck \
+  shfmt \
   vim \
   kitty \
   flatpak \
