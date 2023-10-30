@@ -17,7 +17,7 @@ export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h"
 
 # term
 export TERMINAL=kitty
-export TERM=kitty
+export TERM=xterm-kitty
 
 # use vim
 export EDITOR=/usr/bin/vim
