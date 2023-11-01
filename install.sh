@@ -57,7 +57,9 @@ sudo dnf install -y \
   virt-viewer \
   virt-manager \
   lorax \
-  pykickstart
+  pykickstart \
+  inotify-tools \
+  rpi-imager
 
 
 # 1password
