@@ -8,3 +8,6 @@ alias -- -="cd -"
 
 # list all files in long format, including dot files
 alias la="ls -lah"
+
+# ssh with xterm-256color fallback
+alias ssh="export TERM=xterm-256color ; /usr/bin/ssh"
