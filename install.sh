@@ -144,6 +144,10 @@ flatpak install --user -y flathub io.dbeaver.DBeaverCommunity
 flatpak install --user -y flathub org.remmina.Remmina
 flatpak install --user -y flathub org.ksnip.ksnip
 
+flatpak install flathub com.github.tenderowl.frog
+flatpak install flathub com.github.jeromerobert.pdfarranger
+
+flatpak update
 
 # cleanup
 echo -e "\n==> cleaning up"
