@@ -60,7 +60,8 @@ sudo dnf install -y \
   pykickstart \
   inotify-tools \
   rpi-imager \
-  Thunar
+  Thunar \
+  autorandr
 
 
 # 1password
