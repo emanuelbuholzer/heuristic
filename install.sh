@@ -59,7 +59,8 @@ sudo dnf install -y \
   lorax \
   pykickstart \
   inotify-tools \
-  rpi-imager
+  rpi-imager \
+  Thunar
 
 
 # 1password
