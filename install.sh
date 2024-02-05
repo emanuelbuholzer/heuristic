@@ -63,7 +63,8 @@ sudo dnf install -y \
   Thunar \
   autorandr \
   rstudio-desktop \
-  rstudio
+  rstudio \
+  ansible
 
 
 # 1password
