@@ -82,6 +82,10 @@ sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora//tai
 sudo dnf install -y tailscale
 sudo systemctl enable --now tailscaled
 
+# openmodelica
+source /etc/os-release
+sudo dnf config-manager --add-repo "https://build.openmodelica.org/rpm/fc${VERSION_ID}/omc.repo"
+sudo dnf install openmodelica-nightly
 
 # etc files
 echo -e "\n==> installing etc files"

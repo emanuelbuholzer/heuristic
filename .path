@@ -2,3 +2,7 @@
 
 export PATH="$(cat ~/.heuristic)/bin:$PATH"
 export PATH="$(cat ~/.heuristic)/chuckles/bin:$PATH"
+
+# openmodelica
+export PATH="/opt/openmodelica-nightly/bin:$PATH"
+
