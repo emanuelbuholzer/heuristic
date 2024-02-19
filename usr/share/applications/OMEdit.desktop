@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=OMNotebook
+Name=OMEdit
 Exec=/opt/openmodelica-nightly/bin/OMEdit %U
 Terminal=false
 Type=Application
