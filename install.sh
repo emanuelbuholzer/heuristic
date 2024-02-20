@@ -61,7 +61,9 @@ sudo dnf install -y \
   inotify-tools \
   rpi-imager \
   Thunar \
-  autorandr
+  autorandr \
+  rstudio-desktop \
+  rstudio
 
 
 # 1password
