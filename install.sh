@@ -142,7 +142,7 @@ flatpak install --user -y flathub org.gnome.font-viewer
 flatpak install --user -y flathub com.github.tchx84.Flatseal
 # for the gtk th--user eming
 flatpak install --user -y flathub com.github.themix_project.Oomox
-flatpak install --user -y flathub us.zoom.Zoom
+# flatpak install --user -y flathub us.zoom.Zoom
 flatpak install --user -y flathub com.github.IsmaelMartinez.teams_for_linux
 
 flatpak install --user -y flathub org.wireshark.Wireshark
