@@ -64,7 +64,9 @@ sudo dnf install -y \
   autorandr \
   rstudio-desktop \
   rstudio \
-  ansible
+  ansible \
+  sshpass \
+  openssl
 
 
 # 1password
@@ -78,6 +80,19 @@ Host *
 	IdentityAgent ~/.1password/agent.sock
 EOF
 
+# vscode
+echo -e "\n==> installing vscode"
+sudo dnf install -y curl gpg gcc-c++ make libsecret-devel
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo cat <<EOF > /etc/yum.repos.d/vscode.repo
+[code]
+name=VS Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+sudo dnf install -y code
 
 # tailscale
 echo -e "\n==> installing tailscale"
@@ -180,3 +195,4 @@ echo ; read -p "do you want to to exit i3 to apply most changes: [y/N] " do_exit
 if [ "$do_exit_i3" == "y" ]; then
 	i3-msg exit
 fi
+

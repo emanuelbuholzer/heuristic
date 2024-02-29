@@ -1,20 +1,18 @@
 - https://stackoverflow.com/questions/30931/register-file-extensions-mime-types-in-linux
 - integrate chuckles
 - installer
-
-- test fedora 39
 - better integrate xdg-open
-- arandr remember
-- udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
-- http-server like `npx http-server` or the python integrated one
+- arandr remember and udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
+- integrate chuckles
 - colors in the terminal, man and so on...
+- http-server like `npx http-server` or the python integrated one
 - advanced kitty config
 - xclip or pbpaste for stdio
 - integrate libinput to support touchpad gestures
-
+ne
 - function to create a data URL from a file
 - function to open a git repo in it's respective web site
 - dns flusher
 - ip 
 - untar, ungzip etc.
-- thunas config config/Thunar
+
