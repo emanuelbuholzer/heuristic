@@ -66,7 +66,8 @@ sudo dnf install -y \
   rstudio \
   ansible \
   sshpass \
-  openssl
+  openssl \
+  rustup
 
 
 # 1password
