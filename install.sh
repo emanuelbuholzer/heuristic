@@ -105,7 +105,6 @@ sudo systemctl enable --now tailscaled
 source /etc/os-release
 sudo dnf config-manager --add-repo "https://build.openmodelica.org/rpm/fc${VERSION_ID}/omc.repo"
 sudo dnf install openmodelica-nightly
-
 # etc files
 echo -e "\n==> installing etc files"
 for localfile in $(find $(pwd)/etc -type f -not -name ".*.swp"); do
@@ -173,6 +172,9 @@ flatpak install flathub com.github.tenderowl.frog
 flatpak install flathub com.github.jeromerobert.pdfarranger
 
 flatpak update
+
+# rust toolchain
+rustup update
 
 # cleanup
 echo -e "\n==> cleaning up"
