@@ -94,3 +94,9 @@ if [[ -r $functions_file ]] && [[ -f $functions_file ]]; then
 	source $functions_file
 fi
 
+# device specifics
+device_file="$HOME/.device"
+if [[ -r $device_file ]] && [[ -f $device_file ]]; then
+	source $device_file
+fi
+
