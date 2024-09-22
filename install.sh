@@ -3,13 +3,12 @@
 
 # we save the directory we've been called from, get the directory of the script
 # and go there. this is were we'll work.
-call_dir=$(pwd)
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-cd "$script_dir"
+cd "$script_dir" || exit
 
 
 echo -e "\n==> installing heuristic desktop from $script_dir"
-echo ; read -p "do you want to proceed: [y/N] " do_install
+echo ; read -rp "do you want to proceed: [y/N] " do_install
 if [ "$do_install" != "y" ]; then
   echo "aborting"
   exit 1
@@ -26,7 +25,7 @@ echo -e "==> checking for updates"
 sudo dnf update
 sudo dnf upgrade --refresh
 
-echo ; read -p "do you need to reboot: [y/N] " do_reboot
+echo ; read -rp "do you need to reboot: [y/N] " do_reboot
 if [ "$do_reboot" == "y" ]; then
   echo "aborting install to reboot"
   sleep 5
@@ -67,7 +66,8 @@ sudo dnf install -y \
   ansible \
   sshpass \
   openssl \
-  rustup
+  rustup \
+  minicom
 
 
 # 1password
@@ -85,7 +85,7 @@ EOF
 echo -e "\n==> installing vscode"
 sudo dnf install -y curl gpg gcc-c++ make libsecret-devel
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo cat <<EOF > /etc/yum.repos.d/vscode.repo
+cat <<EOF | sudo tee /etc/yum.repos.d/vscode.repo
 [code]
 name=VS Code
 baseurl=https://packages.microsoft.com/yumrepos/vscode
@@ -107,7 +107,14 @@ sudo dnf config-manager --add-repo "https://build.openmodelica.org/rpm/fc${VERSI
 sudo dnf install openmodelica-nightly
 
 # pico-sdk
-git clone git@github.com:raspberrypi/pico-sdk.git /opt/pico-sdk.git
+sudo git clone git@github.com:raspberrypi/pico-sdk.git /opt/pico-sdk.git
+
+# j-link
+curl -OL 'https://www.segger.com/downloads/jlink/JLink_Linux_V798i_x86_64.tgz' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  --data-raw 'accept_license_agreement=accepted&submit=Download+software'
+rm JLink_Linux_V798i_x86_64.tgz
+sudo mv --update=all JLink_Linux_V798i_x86_64/ /opt/JLink_Linux_V798i_x86_64/
 
 # rust toolchain with cargo installs
 rustup update
@@ -117,9 +124,9 @@ cargo install --git https://github.com/typst/typst --locked typst-cli
 
 # etc files
 echo -e "\n==> installing etc files"
-for localfile in $(find $(pwd)/etc -type f -not -name ".*.swp"); do
+for localfile in $(find "$(pwd)"/etc -type f -not -name ".*.swp"); do
 	etcfile=$(echo "$localfile" | sed -e "s|$(pwd)||")
-	sudo mkdir -p $(dirname "$etcfile")
+	sudo mkdir -p "$(dirname "$etcfile")"
 	# TODO partitioning for hardlink
 	sudo cp "$localfile" "$etcfile"
 done
@@ -133,7 +140,7 @@ unset etcfile
 echo -e "\n==> installing usr files"
 for localfile in $(find $(pwd)/usr -type f -not -name ".*.swp"); do
 	usrfile=$(echo "$localfile" | sed -e "s|$(pwd)||")
-	sudo mkdir -p $(dirname "$usrfile")
+	sudo mkdir -p "$(dirname "$usrfile")"
 	# TODO partitioning for hardlink
 	sudo cp "$localfile" "$usrfile"
 done
@@ -144,7 +151,7 @@ unset usrfile
 # dotfiles
 echo -e "\n==> installing dotfiles"
 for dotfile in $(find $(pwd) -maxdepth 1 -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp"); do
-  filename=$(basename $dotfile)
+  filename="$(basename $dotfile)"
   echo "installing dotfile $filename"
   ln -snf "$dotfile" "$HOME/$filename"
 done
@@ -203,7 +210,7 @@ sudo dnf remove -y \
 
 # after we get a new X session, mosth things should be applied
 echo -e "\n==> installation complete"
-echo ; read -p "do you want to to exit i3 to apply most changes: [y/N] " do_exit_i3
+echo ; read -rp "do you want to to exit i3 to apply most changes: [y/N] " do_exit_i3
 if [ "$do_exit_i3" == "y" ]; then
 	i3-msg exit
 fi

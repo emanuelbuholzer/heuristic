@@ -9,3 +9,6 @@ export PATH="/opt/openmodelica-nightly/bin:$PATH"
 # rpi pico sdk
 export PICO_SDK_PATH="/opt/pico-sdk"
 
+# jlink
+export PATH="/opt/JLink_Linux_V798i_x86_64:$PATH"
+
