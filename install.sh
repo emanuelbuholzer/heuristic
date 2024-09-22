@@ -106,6 +106,9 @@ source /etc/os-release
 sudo dnf config-manager --add-repo "https://build.openmodelica.org/rpm/fc${VERSION_ID}/omc.repo"
 sudo dnf install openmodelica-nightly
 
+# pico-sdk
+git clone git@github.com:raspberrypi/pico-sdk.git /opt/pico-sdk.git
+
 # rust toolchain with cargo installs
 rustup update
 

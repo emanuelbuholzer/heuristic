@@ -6,3 +6,6 @@ export PATH="$(cat ~/.heuristic)/chuckles/bin:$PATH"
 # openmodelica
 export PATH="/opt/openmodelica-nightly/bin:$PATH"
 
+# rpi pico sdk
+export PICO_SDK_PATH="/opt/pico-sdk"
+
