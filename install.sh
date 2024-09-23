@@ -19,6 +19,9 @@ fi
 echo 
 sudo echo
 
+# Enable and start timesyncd
+timedatectl set-timezone Europe/Zurich
+systemctl enable --now systemd-timesyncd
 
 # check for updates and offer graceful reboot because we need a fresh system
 echo -e "==> checking for updates"
