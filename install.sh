@@ -23,6 +23,9 @@ sudo echo
 timedatectl set-timezone Europe/Zurich
 systemctl enable --now systemd-timesyncd
 
+# Enable and start firewalld (because one forgets to :()
+systemctl enable --now firewalld 
+
 # check for updates and offer graceful reboot because we need a fresh system
 echo -e "==> checking for updates"
 sudo dnf update
