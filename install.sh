@@ -61,6 +61,7 @@ sudo dnf install -y \
   buildah \
   virt-viewer \
   virt-manager \
+  virt-install \
   lorax \
   pykickstart \
   inotify-tools \
@@ -73,7 +74,11 @@ sudo dnf install -y \
   sshpass \
   openssl \
   rustup \
-  minicom
+  minicom \
+  python3-devel \
+  ImageMagick \
+  cifs-utils \
+  ffmpeg-free
 
 
 # 1password

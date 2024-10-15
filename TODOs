@@ -1,12 +1,7 @@
 - https://stackoverflow.com/questions/30931/register-file-extensions-mime-types-in-linux
 - integrate chuckles
-- installer
-- better integrate xdg-open
 - arandr remember and udev based monitor hotplug (see also https://i3wm.org/docs/userguide.html#workspace_screen)
-- integrate chuckles
 - colors in the terminal, man and so on...
-- http-server like `npx http-server` or the python integrated one
-- advanced kitty config
 - xclip or pbpaste for stdio
 - integrate libinput to support touchpad gestures
 ne
@@ -15,4 +10,5 @@ ne
 - dns flusher
 - ip 
 - untar, ungzip etc.
+- somehow e.g. JLink canot be found using `bindsym $mod+Shift+d exec --no-startup-id "bash -c 'rofi -show run'"` but by using rofi -show run on the interactive shell
 
