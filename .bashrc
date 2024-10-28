@@ -1,9 +1,9 @@
-
 # if not running interactively, don't do anything
 case $- in
 	*i*) ;;
 	*) return ;;
 esac
+
 
 
 # check and if necessary update window size after each command
@@ -66,8 +66,11 @@ prompt_git() {
 	fi;
 }
 
-PS1="\\n\\u at \\h in \\w\$(prompt_git \" on \")\\n$ "
-
+if [ -f /run/.toolboxenv ]; then
+    PS1="📦[\u@\$CONTAINER_ID \W]\$ "
+else
+    PS1="\\n\\u at \\h in \\w\$(prompt_git \" on \")\\n$ "
+fi
 
 # load exports
 exports_file="$HOME/.exports"
