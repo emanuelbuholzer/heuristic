@@ -78,7 +78,8 @@ sudo dnf install -y \
   python3-devel \
   ImageMagick \
   cifs-utils \
-  ffmpeg-free
+  ffmpeg-free \
+  fltk fltk-devel mathgl-fltk fltk-fluid 
 
 
 # 1password
